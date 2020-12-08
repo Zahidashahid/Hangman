@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8702505748330421545}
   - component: {fileID: 1138854870520369769}
   - component: {fileID: 6670010024414905001}
+  - component: {fileID: 6804882012913593319}
   m_Layer: 5
   m_Name: KeyboardBtn
   m_TagString: Untagged
@@ -120,9 +121,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1138854870520369769}
-        m_TargetAssemblyTypeName: UnityEngine.UI.MaskableGraphic, UnityEngine.UI
-        m_MethodName: RecalculateMasking
+      - m_Target: {fileID: 6804882012913593319}
+        m_TargetAssemblyTypeName: ButtonScript, Assembly-CSharp
+        m_MethodName: GetText
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -132,6 +133,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6804882012913593319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426718146837021580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 367640277cbe97f46b69431880be580f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyboardBtn: {fileID: 6670010024414905001}
+  btnText: {fileID: 8106563231240431148}
+  wordToGuess: {fileID: 398238595438993886, guid: eb1a7eb6bd4529743be6f38e4d631e8a, type: 3}
 --- !u!1001 &4727487507781755871
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -238,3 +254,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 9149362298708854798, guid: 300d66a0278abcb45892fa6f28e1a00a, type: 3}
   m_PrefabInstance: {fileID: 4727487507781755871}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8106563231240431148 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3538462174969693683, guid: 300d66a0278abcb45892fa6f28e1a00a, type: 3}
+  m_PrefabInstance: {fileID: 4727487507781755871}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

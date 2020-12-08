@@ -3,53 +3,102 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
+[System.Serializable]
 public class Hangman : MonoBehaviour
  {
+    private string word = "Hello Zahi I am Java";// word to guess
+    private char[] correctWordLetters;
+    public Text wordToGuess;
+    private char[] guessedLetters; //letters player will guess
 
-    private string word = "Hello Zahi";// word to guess,
-    char[] letters;
     //    // private int lengthOfWord = word.Length; //
-    //     // private char[] guessedLetter ; //letters player will guess
+    //     // 
     //     // private string wordGuessed = 0;
     //     // private int retry = 6;
     //     // //private int score;  //   
     //     // private bool complete; 
 
-    //     // public Button keyboardBtn;
-    //     // public Text btnText;
-    public Text wordToGuess;
+
 
 
     //     //char[] Letter = new char[LengthOfWord];
     public void Start()
     {
-        letters = word.ToCharArray();
-        string dashes = "";
-        for (int p = 0; p < letters.Length; p++)
-            dashes += "_ ";
-        wordToGuess.text = dashes;
-        Debug.Log("dashes");
-
-
-        // Reset();
+        word = word.ToUpper();
+        correctWordLetters = word.ToCharArray();
+        guessedLetters = new char[correctWordLetters.Length];
+        DisplayDashes();
     }
 
-    //     // public void DisplayDashes()
-    //      //{  
-    //     //   ./*  for (int p = 0; p < letters.Length; p++)
-    //     //         Letter[p] = '_';*/
-    //     // }
+    public void DisplayDashes()
+    {
+        string dashes = "";
+        for (int p = 0; p < correctWordLetters.Length; p++)
+        {
+            if (correctWordLetters[p] == ' ')
+            {
+                dashes += "  ";
+                guessedLetters[p] = ' ';
+            }
+            else
+            {
+                dashes += "_ ";
+                guessedLetters[p] = '_';
+            }
+        }
+        dashes = dashes.TrimStart();
+        dashes = dashes.TrimEnd();
+        SetWordToGuessText(dashes);
+    }
 
+    public void Check(char ch)
+    {
+        bool found = false;
+        int index; 
+        for (index = 0; index < correctWordLetters.Length; index++)
+        {
+            if (correctWordLetters[index] == ch)
+            {
+                found = true;
+                break;
+            }
+        }
+        if (found)
+        {
+            guessedLetters[index] = correctWordLetters[index];
+            for (int p = index; p < correctWordLetters.Length; p++)
+            {
+                if (correctWordLetters[p] == correctWordLetters[index])
+                {
+                    guessedLetters[p] = correctWordLetters[p];
+                }
+            }
 
-    //     // public void GetText()
-    //     // {
+            string currentWord = "";
+            for (int p = 0; p < guessedLetters.Length; p++)
+            {
+                if (guessedLetters[p] == ' ')
+                {
+                    currentWord += " ";
+                }
+                else
+                {
+                    currentWord += " " + guessedLetters[p] + " ";
+                }
+            }
+            currentWord = currentWord.TrimStart();
+            currentWord = currentWord.TrimEnd();
+            SetWordToGuessText(currentWord);
+            Debug.Log(currentWord);
+        }
+        else
+            Debug.Log("Not Match!");
+    }
 
-    //     //     btnText= keyboardBtn.GetComponentInChildren<Text>();
-    //     //     Debug.Log(btnText.text);
-    //     //     keyboardBtn.interactable = false;
-
-    //     // }
+    public void SetWordToGuessText(string text)
+    {
+        wordToGuess.text = text;
+    }
 
     //     // public void Check()
     //     // {
