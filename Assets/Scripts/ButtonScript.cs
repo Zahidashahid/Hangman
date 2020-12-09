@@ -2,42 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
+
 public class ButtonScript : MonoBehaviour
 {
     public Button keyboardBtn;
     public Text btnText;
-    public Text texttoshow; 
-    public char ans;
-  
-   // public Hangman hangman;
-    Hangman hangman = new Hangman();
+    private char pressedButtonChar;
 
     public void GetText()
     {
-
-      btnText= keyboardBtn.GetComponentInChildren<Text>();
-      Debug.Log(btnText.text);
-      keyboardBtn.interactable = false;
-
-      ans = GetText(btnText.text);
-      
-
-      char.TryParse(wordToGuess.text ,out  ans);
-      if(hangman.word.charAt[0] == ans)
-      {
-          wordToGuess.GetComponent<Text>().text = ans.ToString();
-      }
-      //SetHangmanReferenceOnButtons();
-
+        btnText = keyboardBtn.GetComponentInChildren<Text>();
+        Char.TryParse(btnText.text, out pressedButtonChar);
+        GameObject gameController = GameObject.Find("GameController");
+        Hangman refScript = gameController.GetComponent<Hangman>();
+        refScript.Check(pressedButtonChar);
+        keyboardBtn.interactable = false;
     }
-        
-      // void SetHangmanReferenceOnButtons()
-      // {       
-      //   keyboardBtn.GetComponentInParent<ButtonScript>().SetHangmanReference(this);
-
-      // }
-    // public void SetHangmanReference(GameObject controller)
-    // {
-    //   hangman = controller;
-    // }
 }
