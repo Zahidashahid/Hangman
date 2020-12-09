@@ -2411,7 +2411,6 @@ GameObject:
   - component: {fileID: 1491559634}
   - component: {fileID: 1491559636}
   - component: {fileID: 1491559635}
-  - component: {fileID: 1491559637}
   m_Layer: 5
   m_Name: keyboard
   m_TagString: Untagged
@@ -2502,20 +2501,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1491559633}
   m_CullTransparentMesh: 0
---- !u!114 &1491559637
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1491559633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36b48cfc05ad3d54f8d91d46d34e4499, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  word: Hello
-  wordToGuess: {fileID: 249512389}
 --- !u!1001 &1491646669
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2977,7 +2962,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36b48cfc05ad3d54f8d91d46d34e4499, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  word: Hellooo
   wordToGuess: {fileID: 249512389}
 --- !u!4 &1711329805
 Transform:
