@@ -18,5 +18,6 @@ public class ButtonScript : MonoBehaviour
         Hangman refScript = gameController.GetComponent<Hangman>();
         refScript.Check(pressedButtonChar);
         keyboardBtn.interactable = false;
+        keyboardBtn.gameObject.SetActive(false);
     }
 }

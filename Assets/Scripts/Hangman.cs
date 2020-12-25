@@ -6,6 +6,7 @@ using UnityEngine.UI;
 //[System.Serializable]
 public class Hangman : MonoBehaviour
  {
+    public Button keyboardBtn;
     private string word = "Hello Zahi I am Java";// word to guess
     private char[] correctWordLetters;
     public Text wordToGuess;
@@ -16,38 +17,31 @@ public class Hangman : MonoBehaviour
     public bool ISNotComplete = true;// not guess all letters
     //     // 
     //     // private string wordGuessed = 0;
-    private int retry = 6;
+    private int retry = 0;
+    public Text gameOverText;
+    public GameObject gameOverPanel;
+    public GameObject hangmanPanel;
+    public GameObject[] hangmanParts = new GameObject[8];
+    public GameObject restartButton;
    // private int score;  //   
     //     // private bool complete; 
     //  ]   //char[] Letter = new char[LengthOfWord];
     public void Start()
     { 
+        gameOverPanel.SetActive(false);
+      // hangmanPanel.SetActive(false);
         word = word.ToUpper();
+         //hangmanParts[0] =GameObject.Find("stage");
         correctWordLetters = word.ToCharArray();
         guessedLetters = new char[correctWordLetters.Length];// length of guess must be greater than correctWordLetters.Length incase of storing wrong charecter
         DisplayDashes();
+        
     }
 
-    public void IsCompleteWord()// check all  latters are guessed
-    {
-        
-        for(int p = 0; p < correctWordLetters.Length; p++)
-        {
-            if(guessedLetters[p] == correctWordLetters[p])
-            {
-                ISNotComplete = false;
-            }
-            else
-            {
-                ISNotComplete = true;
-                break;
-                
-            }
-                
-        }
-    }      
+    
     public void DisplayDashes()
     {
+        
         string dashes = "";
         for (int p = 0; p < correctWordLetters.Length; p++)
         {
@@ -65,15 +59,36 @@ public class Hangman : MonoBehaviour
         dashes = dashes.TrimStart();
         dashes = dashes.TrimEnd();
         SetWordToGuessText(dashes);
+       
     }
-
+    public void IsCompleteWord()// check all  latters are guessed
+    {
+        
+        for(int p = 0; p < correctWordLetters.Length; p++)
+        {
+            if(guessedLetters[p] == correctWordLetters[p])
+            {
+                ISNotComplete = false;
+            }
+            else
+            {
+                ISNotComplete = true;
+                break;
+                
+            }
+                
+        }
+    }              
+          
     public void Check(char ch)
     {
-        if(retry>0 )
+        //while(ISNotComplete == true)
+        
+        if(ISNotComplete == true && retry< 8 )
         {
             Debug.Log(" now trial "+retry);
           
-            IsCompleteWord();
+             
             bool found = false;
             int index; // check presence of gussed letter
             for (index = 0; index < correctWordLetters.Length; index++)
@@ -115,25 +130,71 @@ public class Hangman : MonoBehaviour
             }
             else
             {
-            
+                hangmanParts[retry].SetActive(true);
+              
                 Debug.Log("Not Match!");
-                retry--;
+                retry++;
                 Debug.Log("  after worng "+retry);
             }
         }
         else
         {
-             Debug.Log("  Game End now trial "+retry);
+           // setMan();
+            Debug.Log("  Game End now trial "+retry);
+            keyboardBtn.gameObject.SetActive(false);
+            GameOver();
+         
         }
+        IsCompleteWord();
     }
-           
-        
+  
 
     public void SetWordToGuessText(string text)
     {
         wordToGuess.text = text;
+        
     }
 
+    // public void setMan()
+    // {
+    //     // for(int i =0;i < 6;i++)
+    //     // {
+    //         // hangmanParts[0] =GameObject.Find("stage");//i.ToString()
+    //         // hangmanParts[0].SetActive(true);
+    //    // }
+    // }
+
+    void GameOver()
+    {
+        Debug.Log(" Just entered");
+        //keyboardBtn.SetActive(false);
+        if (retry >=8)
+        {
+            SetGameOverText("Game Over!");
+            //Debug.Log(" In win Loop ");
+           
+        }
+        
+        else
+        {
+            SetGameOverText("You did it!");
+            //Debug.Log("  In over loop ");
+        }
+        Debug.Log(" below if");
+       // restartButton.SetActive(true);
+    }
+    public void SetGameOverText(string text)
+    {
+          gameOverPanel.SetActive(true);
+          gameOverText.text = text;
+    }
+    // public void SetHangedman()
+    // {
+    //     hangmanPanel.SetActive(true);
+    //    //i.ToString()
+    //     //hangmanParts[0].SetActive(true);
+       
+    // }
     // public void Reset()
     // {
     //    // score = 0;

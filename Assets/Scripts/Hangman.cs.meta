@@ -3,7 +3,11 @@ guid: 36b48cfc05ad3d54f8d91d46d34e4499
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - wordToGuess: {instanceID: 0}
+  - gameOverText: {instanceID: 0}
+  - gameOverPanel: {fileID: 4644778533321144775, guid: 4fe62516ccce8c044a9916726b19013d, type: 3}
+  - restartButton: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
