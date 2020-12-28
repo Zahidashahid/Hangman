@@ -6,7 +6,7 @@ using UnityEngine.UI;
 //[System.Serializable]
 public class Hangman : MonoBehaviour
  {
-    public Button keyboardBtn;
+     public Button keyboardBtn;
     private string word = "Hello Zahi I am Java";// word to guess
     private char[] correctWordLetters;
     public Text wordToGuess;
@@ -130,8 +130,8 @@ public class Hangman : MonoBehaviour
             }
             else
             {
-                hangmanParts[retry].SetActive(true);
-              
+                hangmanParts[retry].SetActive(true); // Set hangman if select wrong character 
+                keyboardBtn.gameObject.SetActive(false);
                 Debug.Log("Not Match!");
                 retry++;
                 Debug.Log("  after worng "+retry);
@@ -141,9 +141,7 @@ public class Hangman : MonoBehaviour
         {
            // setMan();
             Debug.Log("  Game End now trial "+retry);
-            keyboardBtn.gameObject.SetActive(false);
-            GameOver();
-         
+           GameOver();
         }
         IsCompleteWord();
     }

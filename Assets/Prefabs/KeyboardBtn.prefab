@@ -38,7 +38,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -79, y: -90}
-  m_SizeDelta: {x: 30, y: 40}
+  m_SizeDelta: {x: 16, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8702505748330421545
 CanvasRenderer:
@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6563846, g: 0.754717, b: 0.45852616, a: 1}
+  m_Color: {r: 0.23529412, g: 0.37254903, b: 0.56078434, a: 0.1764706}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -101,8 +101,8 @@ MonoBehaviour:
     m_NormalColor: {r: 0.2973691, g: 0.245461, b: 0.6603774, a: 1}
     m_HighlightedColor: {r: 0.34193468, g: 0.8490566, b: 0.3155927, a: 1}
     m_PressedColor: {r: 0.3605197, g: 0.7735849, b: 0.7735849, a: 1}
-    m_SelectedColor: {r: 0.1764706, g: 0.1764706, b: 0.1764706, a: 1}
-    m_DisabledColor: {r: 0.69803923, g: 0.255445, b: 0.11372547, a: 0.88235295}
+    m_SelectedColor: {r: 0.8867924, g: 0.73118544, b: 0.73118544, a: 1}
+    m_DisabledColor: {r: 0.6784314, g: 0, b: 0.663093, a: 0.88235295}
     m_ColorMultiplier: 5
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -147,7 +147,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyboardBtn: {fileID: 6670010024414905001}
   btnText: {fileID: 8106563231240431148}
-  wordToGuess: {fileID: 398238595438993886, guid: eb1a7eb6bd4529743be6f38e4d631e8a, type: 3}
 --- !u!1001 &4727487507781755871
 PrefabInstance:
   m_ObjectHideFlags: 0
