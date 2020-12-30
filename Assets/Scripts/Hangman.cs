@@ -78,17 +78,17 @@ public class Hangman : MonoBehaviour
             }
                 
         }
-    }              
-          
+    }
+
     public void Check(char ch)
     {
         //while(ISNotComplete == true)
-        
-        if(ISNotComplete == true && retry< 8 )
+
+        if (ISNotComplete == true && retry < 8)
         {
-            Debug.Log(" now trial "+retry);
-          
-             
+            Debug.Log(" now trial " + retry);
+
+
             bool found = false;
             int index; // check presence of gussed letter
             for (index = 0; index < correctWordLetters.Length; index++)
@@ -127,6 +127,7 @@ public class Hangman : MonoBehaviour
                 currentWord = currentWord.TrimEnd();
                 SetWordToGuessText(currentWord);
                 Debug.Log(currentWord);
+                IsCompleteWord();
             }
             else
             {
@@ -134,16 +135,10 @@ public class Hangman : MonoBehaviour
                 keyboardBtn.gameObject.SetActive(false);
                 Debug.Log("Not Match!");
                 retry++;
-                Debug.Log("  after worng "+retry);
+                Debug.Log("  after worng " + retry);
             }
         }
-        else
-        {
-           // setMan();
-            Debug.Log("  Game End now trial "+retry);
-           GameOver();
-        }
-        IsCompleteWord();
+        GameOver();
     }
   
 
@@ -166,14 +161,13 @@ public class Hangman : MonoBehaviour
     {
         Debug.Log(" Just entered");
         //keyboardBtn.SetActive(false);
-        if (retry >=8)
+        if (retry >= 8 && ISNotComplete)
         {
             SetGameOverText("Game Over!");
             //Debug.Log(" In win Loop ");
            
         }
-        
-        else
+        else if(!ISNotComplete)
         {
             SetGameOverText("You did it!");
             //Debug.Log("  In over loop ");
